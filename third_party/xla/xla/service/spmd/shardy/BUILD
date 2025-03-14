@@ -41,6 +41,7 @@ cc_library(
         "//xla/hlo/utils:hlo_sharding_util",
         "//xla/service:computation_layout",
         "//xla/service:hlo_proto_cc",
+        "//xla/service/spmd/shardy/extensions:mhlo_extensions",
         "//xla/service/spmd/shardy/sdy_round_trip:pipelines",
         "//xla/service/spmd/shardy/stablehlo_round_trip:stablehlo_export",
         "//xla/service/spmd/shardy/stablehlo_round_trip:stablehlo_import",

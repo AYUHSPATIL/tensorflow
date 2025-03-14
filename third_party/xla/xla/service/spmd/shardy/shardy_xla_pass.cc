@@ -55,6 +55,7 @@ limitations under the License.
 #include "xla/service/computation_layout.h"
 #include "xla/service/hlo.pb.h"
 #include "xla/service/spmd/shardy/constants.h"
+#include "xla/service/spmd/shardy/extensions/mhlo_extensions.h"
 #include "xla/service/spmd/shardy/sdy_round_trip/pipelines.h"
 #include "xla/service/spmd/shardy/stablehlo_round_trip/stablehlo_export.h"
 #include "xla/service/spmd/shardy/stablehlo_round_trip/stablehlo_import.h"
@@ -304,6 +305,7 @@ absl::StatusOr<bool> ShardyXLA::Run(
   // HLO -> StableHLO
   auto mlirContext = std::make_unique<mlir::MLIRContext>();
   loadAllRequiredDialects(mlirContext.get());
+  registerMhloExtensions(mlirContext.get());
   TF_ASSIGN_OR_RETURN(
       mlir::OwningOpRef<mlir::ModuleOp> mlirModule,
       xla::ConvertHloToStablehlo(*mlirContext.get(), hloModule));
