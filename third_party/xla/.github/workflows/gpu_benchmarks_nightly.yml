@@ -89,8 +89,9 @@ jobs:
             "$HLO_FILE_GB" \
             > "${OUTPUT_PREFIX_GB}.txt"
 
-          $binary_dir/compute_gpu_device_stats_main_gpu \
+          $binary_dir/compute_xspace_stats_main \
             --input="${OUTPUT_PREFIX_GB}_xspace.pb" \
+            --device_type=GPU \
             >> "${OUTPUT_PREFIX_GB}.txt"
 
           cat "${OUTPUT_PREFIX_GB}.txt"
@@ -108,8 +109,9 @@ jobs:
             "$HLO_FILE_GEMMA" \
             > "${OUTPUT_PREFIX_GEMMA}.txt"
 
-          $binary_dir/compute_gpu_device_stats_main_gpu \
+          $binary_dir/compute_xspace_stats_main \
             --input="${OUTPUT_PREFIX_GEMMA}_xspace.pb" \
+            --device_type=GPU \
             >> "${OUTPUT_PREFIX_GEMMA}.txt"
 
           cat "${OUTPUT_PREFIX_GEMMA}.txt"
