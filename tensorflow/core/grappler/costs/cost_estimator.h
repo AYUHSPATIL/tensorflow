@@ -142,6 +142,11 @@ struct Costs {
   Duration hbm_read_time;
   Duration hbm_write_time;
 
+  // HBM read and write cost of running the graph, assuming the HBM bw is not
+  // derated.
+  Duration hbm_read_time_noderate;
+  Duration hbm_write_time_noderate;
+
   // Intermediate memory access cost of running the graph
   Duration intermediate_memory_time;
   Duration intermediate_memory_read_time;   // Intermediate memory read cost.
